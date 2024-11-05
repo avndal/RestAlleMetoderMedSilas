@@ -32,6 +32,16 @@ Vue.createApp({
                 } catch (ex) {
                     alert(ex.message) // https://www.w3schools.com/js/js_popup.asp
                 }
-        }
+            },
+            async deleteTrophy(deleteId) {
+                const url = baseUrl + "/" + deleteId
+                try {
+                    response = await axios.delete(url)
+                    this.deleteMessage = response.status + " " + response.statusText
+                    this.getAllTrophies()
+                } catch (ex) {
+                    alert(ex.message)
+                }
+            }
     }
 }).mount("#app")

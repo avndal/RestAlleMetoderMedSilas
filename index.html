@@ -24,6 +24,13 @@
             </li>
         </ul>
         <div v-else>No trophies </div>
+        
+        
+        <h2>Delete (DELETE)</h2>
+        <input v-model.number="deleteId" placeholder="id" type="number" />
+        <button v-on:click="deleteTrophy(deleteId)" class="btn btn-warning">Delete</button>
+        {{deleteMessage}}
+
     </div>
  <script src="index.js"></script>
 </body>

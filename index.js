@@ -33,6 +33,15 @@ Vue.createApp({
                     alert(ex.message) // https://www.w3schools.com/js/js_popup.asp
                 }
             },
+            async getById(id) {
+                const url = baseUrl + "/" + id
+                try {
+                    const response = await axios.get(url)
+                    this.singleTrophy = await response.data
+                } catch (ex) {
+                    alert(ex.message)
+                }
+            },
             async deleteTrophy(deleteId) {
                 const url = baseUrl + "/" + deleteId
                 try {
@@ -52,5 +61,15 @@ Vue.createApp({
                     alert(ex.message)
                 }
             },
+            async updateTrophy() {
+                const url = baseUrl + "/" + this.updateData.id
+                try {
+                    response = await axios.put(url, this.updateData)
+                    this.updateMessage = "response " + response.status + " " + response.statusText
+                    this.getAllTrophies()
+                } catch (ex) {
+                    alert(ex.message)
+                }
+            }
     }
 }).mount("#app")

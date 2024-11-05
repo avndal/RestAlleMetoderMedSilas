@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Cozy Trophy </h1>
+    <div id="app">
+        <h2>Get All etc (GET) </h2>
+        <button id="getAllButton" v-on:click="getAllTrophies" class="btn btn-primary">Get all trophies</button>
+        <br />
+        <input v-model="competitionToGetBy" placeholder="competition" type="text" v-on:keyup.enter="getBycompetition(competitionToGetBy)" /> 
+        <button v-on:click="getBycompetition(competitionToGetBy)" class="btn btn-primary">Get by competition</button>
+
+        <ul id="trophylist" v-if="trophies.length">
+            <li v-for="trophy in trophies">
+                {{trophy.id}} {{trophy.competition }} : {{trophy.year }}
+            </li>
+        </ul>
+        <div v-else>No trophies </div>
+    </div>
+ <script src="index.js"></script>
+</body>
+
+</html>

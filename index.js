@@ -4,7 +4,7 @@ Vue.createApp({
     data() {
         return {
             trophies: [],
-            trophyToGetBy: "",
+            yearToGetBy: "",
             idToGetBy: -1,
             deleteId: 0,
             deleteMessage:"",
@@ -21,11 +21,11 @@ Vue.createApp({
             getAllTrophies() {
                 this.getTrophies(baseUrl)
             },
-            getByCompetition(vendor) { // filter cars by vendor
-                const url = baseUrl + "?vendor=" + vendor
+            getByYear(year) { // filter cars by year
+                const url = baseUrl + "?year=" + year
                 this.getTrophies(url)
             },
-            async getTrophies(url) { // helper method: getAllCars + getByVendor are very similar
+            async getTrophies(url) { // helper method: getAllCars + getByyear are very similar
                 try {
                     const response = await axios.get(url)
                     this.trophies = await response.data

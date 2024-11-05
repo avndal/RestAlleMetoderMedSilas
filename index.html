@@ -15,8 +15,8 @@
         <h2>Get All etc (GET) </h2>
         <button id="getAllButton" v-on:click="getAllTrophies" class="btn btn-primary">Get all trophies</button>
         <br />
-        <input v-model="competitionToGetBy" placeholder="competition" type="text" v-on:keyup.enter="getBycompetition(competitionToGetBy)" /> 
-        <button v-on:click="getBycompetition(competitionToGetBy)" class="btn btn-primary">Get by competition</button>
+        <input v-model="yearToGetBy" placeholder="year" type="number" v-on:keyup.enter="getByYear(yearToGetBy)" /> 
+        <button v-on:click="getByYear(yearToGetBy)" class="btn btn-primary">Get by Year</button>
 
         <ul id="trophylist" v-if="trophies.length">
             <li v-for="trophy in trophies">

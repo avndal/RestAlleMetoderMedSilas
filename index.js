@@ -42,6 +42,15 @@ Vue.createApp({
                 } catch (ex) {
                     alert(ex.message)
                 }
-            }
+            },
+            async addTrophy() {
+                try {
+                    response = await axios.post(baseUrl, this.addData)
+                    this.addMessage = "response " + response.status + " " + response.statusText
+                    this.getAllTrophies()
+                } catch (ex) {
+                    alert(ex.message)
+                }
+            },
     }
 }).mount("#app")
